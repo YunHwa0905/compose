@@ -40,20 +40,23 @@ jobs:
       - name: 도커 허브 로그인
         run: echo "${{ secrets.HUB_DOCKER_TOKEN }}" | docker login -u "${{ secrets.HUB_DOCKER_NAME }}" --password-stdin
 
-
       # 백엔드 이미지 생성 -> 허브(레퍼지토리) 푸시
       - name: 백엔드 이미지 생성 -> 허브(레퍼지토리) 푸시
         run: |
-          docker build -t YunHwa0905/demo_backend ./backend
-          docker push YunHwa0905/demo_backend
+          docker build -t edu2ucoc/demo_backend ./backend
+          docker push edu2ucoc/demo_backend
 
       # 프런트 이미지 생성 -> 허브(레퍼지토리) 푸시
-      - name: 백엔드 이미지 생성 -> 허브(레퍼지토리) 푸시
+      - name: 프런트 이미지 생성 -> 허브(레퍼지토리) 푸시
         run: |
-          docker build -t YunHwa0905/demo_frontend ./backend
-          docker push YunHwa0905/demo_frontend
+          docker build -t edu2ucoc/demo_frontend ./frontend
+          docker push edu2ucoc/demo_frontend
 
       # eC2 서버로 필요 파일 업로드(YML, nginx/*.conf)
+      # Ec2 생성 -> 탄력적 ip 연결 > 활성화 이후
+      # EC2 접속
+      # docker-compose.yml, ./nginx/default.conf 업로드
+      # 타겟 : /home/ubuntu
 
     #deploy:
     # 도커 컴포즈 진행
