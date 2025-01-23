@@ -44,7 +44,7 @@ jobs:
       - name: 백엔드 이미지 생성 -> 허브(레퍼지토리) 푸시
         run: |
           docker build -t yunhwa0905/demo_backend ./backend
-          docker push yunhwa0905c/demo_backend
+          docker push yunhwa0905/demo_backend
 
       # 프런트 이미지 생성 -> 허브(레퍼지토리) 푸시
       - name: 프런트 이미지 생성 -> 허브(레퍼지토리) 푸시
