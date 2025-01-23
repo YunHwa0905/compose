@@ -40,7 +40,7 @@ jobs:
       - name: 도커 허브 로그인
         run: echo "${{ secrets.HUB_DOCKER_TOKEN }}" | docker login -u "${{ secrets.HUB_DOCKER_NAME }}" --password-stdin
 
-      # 백엔드 이미지 생성 -> 허브(레퍼지토리) 푸시
+      # 백엔드 이미지 생성 -> 허브(레퍼지토리) 푸시.
       - name: 백엔드 이미지 생성 -> 허브(레퍼지토리) 푸시
         run: |
           docker build -t edu2ucoc/demo_backend ./backend
